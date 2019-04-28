@@ -17,7 +17,7 @@ public class TestTestTb {
     @Test
     public void testAdd() throws Exception {
         TestTb testTb = new TestTb();
-        testTb.setName("刘德华");
+        testTb.setName("小行星");
 
         testTbService.addTestTb(testTb);
     }

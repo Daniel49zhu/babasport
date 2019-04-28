@@ -12,7 +12,9 @@ public class TestTbServiceImpl implements TestTbService{
     @Autowired
     private TestTbDao testTbDao;
 
+    @Transactional
     public void addTestTb(TestTb testTb) {
         testTbDao.addTestTb(testTb);
+        throw new RuntimeException("something wrong");
     }
 }
