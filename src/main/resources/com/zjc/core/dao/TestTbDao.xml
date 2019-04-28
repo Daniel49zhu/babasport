@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjc.core.dao.TestTbDao">
+    <!--  添加测试数据  -->
+	<!-- 接口中的方法名和方法上的参数 -->
+    <insert id="addTestTb" parameterType="com.zjc.core.bean.TestTb">
+		insert into test_tb
+		(name,birthday)
+		values
+		(#{name},#{birthday})
+	</insert>
+</mapper>
