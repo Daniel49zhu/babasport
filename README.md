@@ -13,3 +13,24 @@
 - springmvc-back.xml
 *.do（商家）
 
+web.xml中配置字符集处理乱码
+
+配置日期格式转换
+- 局部 在controller中添加
+```
+@InitBinder
+public void initBinder(WebDataBinder binder, WebRequest request) {
+    //转换日期格式
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+}
+```
+- 全局 在springmvc的配置文件中
+```
+<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    <property name="webBindingInitializer">
+        <bean class="com.zjc.core.web.CustomDateEdtor"/>
+    </property>
+</bean>
+```
+定义的转换器和局部一样

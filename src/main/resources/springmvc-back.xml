@@ -21,4 +21,11 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- 配置全局日期转换器 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="webBindingInitializer">
+            <bean class="com.zjc.core.web.CustomDateEdtor"/>
+        </property>
+    </bean>
+
 </beans>
