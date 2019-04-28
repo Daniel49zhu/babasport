@@ -7,3 +7,9 @@
 商品详情页
 1. 静态化Freemarker
 
+配置两个spring mvc
+- springmvc-front.xml
+*.shtml(用户)
+- springmvc-back.xml
+*.do（商家）
+
