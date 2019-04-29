@@ -15,6 +15,5 @@ public class TestTbServiceImpl implements TestTbService{
     @Transactional
     public void addTestTb(TestTb testTb) {
         testTbDao.addTestTb(testTb);
-        throw new RuntimeException("something wrong");
     }
 }

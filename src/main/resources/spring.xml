@@ -34,7 +34,6 @@
     <!--mybatis sesstionFactory设置-->
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath:com/zjc/core/dao/*.xml"/>
         <property name="typeAliasesPackage" value="com.zjc.core.bean"/>
     </bean>
 
