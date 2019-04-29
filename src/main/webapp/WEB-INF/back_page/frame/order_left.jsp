@@ -21,20 +21,20 @@
 </head>
 <body class="lbody">
 <div class="left">
-<%@ include file="/back_page/date.jsp" %>
+<%@ include file="/WEB-INF/back_page/date.jsp" %>
      <ul class="w-lful">
-		<li><a target="rightFrame" href="order_right.jsp">货到付款</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">待付款</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">已取消</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">已付款</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">仓库配货</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">商品出库</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">等待收货</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">已完成</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">待退货</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">待退款</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">已退货</a></li>
-		<li><a target="rightFrame" href="order_right.jsp">已退款</a></li>
+		<li><a target="rightFrame" href="order_right.do">货到付款</a></li>
+		<li><a target="rightFrame" href="order_right.do">待付款</a></li>
+		<li><a target="rightFrame" href="order_right.do">已取消</a></li>
+		<li><a target="rightFrame" href="order_right.do">已付款</a></li>
+		<li><a target="rightFrame" href="order_right.do">仓库配货</a></li>
+		<li><a target="rightFrame" href="order_right.do">商品出库</a></li>
+		<li><a target="rightFrame" href="order_right.do">等待收货</a></li>
+		<li><a target="rightFrame" href="order_right.do">已完成</a></li>
+		<li><a target="rightFrame" href="order_right.do">待退货</a></li>
+		<li><a target="rightFrame" href="order_right.do">待退款</a></li>
+		<li><a target="rightFrame" href="order_right.do">已退货</a></li>
+		<li><a target="rightFrame" href="order_right.do">已退款</a></li>
      </ul>
 </div>
 </body>
