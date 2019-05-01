@@ -26,15 +26,15 @@ public interface BrandDao {
 
 
     //查询总记录数
-    @Select("<script>\tselect count(1)\n" +
-            "\t\tfrom bbs_brand\n" +
-            "\t\t<where>\n" +
-            "\t\t\t<if test=\"isDisplay != null\">\n" +
-            "\t\t\t\tis_display = #{isDisplay}\n" +
-            "\t\t\t</if>\n" +
-            "\t\t\t<if test=\"name != null\">\n" +
-            "\t\t\t\tand name = #{name}\n" +
-            "\t\t\t</if>\n" +
-            "\t\t</where></script>")
+    @Select("<script>select count(1)" +
+            "from bbs_brand" +
+            "<where>" +
+            "<if test=\"isDisplay != null\">" +
+            "is_display = #{isDisplay}" +
+            "</if>" +
+            "<if test=\"name != null\">" +
+            "and name = #{name}" +
+            "</if>" +
+            "</where></script>")
     int getBrandCount(Brand brand);
 }
