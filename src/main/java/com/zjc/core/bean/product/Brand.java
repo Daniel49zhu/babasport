@@ -1,5 +1,8 @@
 package com.zjc.core.bean.product;
 
+
+import com.zjc.core.web.Constants;
+
 public class Brand {
 
     private Integer id;
@@ -69,7 +72,7 @@ public class Brand {
     //开始行
     private Integer startRow;
     //每页数
-    private Integer pageSize = 10;
+    private Integer pageSize = 5;
 
 
     public Integer getStartRow() {
@@ -93,5 +96,10 @@ public class Brand {
         //计算一次开始行
         this.startRow = (pageNo - 1)*pageSize;
         this.pageNo = pageNo;
+    }
+
+    //获取全路径
+    public String getAllUrl(){
+        return Constants.IMAGE_URL + imgUrl;
     }
 }

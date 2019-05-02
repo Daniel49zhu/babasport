@@ -2,7 +2,6 @@ package com.zjc.core.dao.product;
 
 import com.zjc.core.bean.product.Brand;
 import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.type.JdbcType;
@@ -11,7 +10,18 @@ import java.util.List;
 
 public interface BrandDao {
     //List集合
-    @Select("select id,name,description,img_url,sort,is_display from bbs_brand where is_display=1 order by id desc")
+    @Select("<script>select id , name ,description,img_url,sort,is_display\n" +
+            "from bbs_brand\n" +
+            "<where>\n" +
+            "<if test=\"isDisplay != null\">\n" +
+            "is_display = #{isDisplay}\n" +
+            "</if>\n" +
+            "<if test=\"name != null\">\n" +
+            "and name like #{name}\n" +
+            "</if>\n" +
+            "</where>\n" +
+            "order by id desc\n" +
+            "limit #{startRow},#{pageSize}</script>")
     @Results(
             value = {
                     @Result(column = "id", property = "id", javaType = Integer.class, jdbcType = JdbcType.INTEGER),
@@ -26,15 +36,15 @@ public interface BrandDao {
 
 
     //查询总记录数
-    @Select("<script>select count(1)" +
-            "from bbs_brand" +
-            "<where>" +
-            "<if test=\"isDisplay != null\">" +
-            "is_display = #{isDisplay}" +
-            "</if>" +
-            "<if test=\"name != null\">" +
-            "and name = #{name}" +
-            "</if>" +
+    @Select("<script>select count(1)\n" +
+            "from bbs_brand\n" +
+            "<where>\n" +
+            "<if test=\"isDisplay != null\">\n" +
+            "is_display = #{isDisplay}\n" +
+            "</if>\n" +
+            "<if test=\"name != null\">\n" +
+            "and name like #{name}\n" +
+            "</if>\n" +
             "</where></script>")
     int getBrandCount(Brand brand);
 }
