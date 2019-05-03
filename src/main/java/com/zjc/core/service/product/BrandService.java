@@ -5,4 +5,6 @@ import com.zjc.core.bean.product.Brand;
 
 public interface BrandService {
 	Pagination  getBrandListWithPage(Brand brand);
+
+    void addBrand(Brand brand);
 }

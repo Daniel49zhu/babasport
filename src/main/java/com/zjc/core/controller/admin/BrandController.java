@@ -62,4 +62,28 @@ public class BrandController {
     public String toAdd(){
         return "brand/add";
     }
+
+    //添加品牌
+    @RequestMapping(value = "/brand/add.do")
+    public String add(Brand brand){
+        //添加开始
+        brandService.addBrand(brand);
+        return "redirect:/brand/list.do";
+    }
+
+
+    //删除一个品牌
+    @RequestMapping(value = "/brand/delete.do")
+    public String delete(Integer id,String name,Integer isDisplay,ModelMap model){
+        //TODO 删除
+        if(StringUtils.isNotBlank(name)){
+            model.addAttribute("name", name);
+        }
+        if(null != isDisplay){
+            model.addAttribute("isDisplay", isDisplay);
+        }
+
+        return "redirect:/brand/list.do";
+    }
+
 }

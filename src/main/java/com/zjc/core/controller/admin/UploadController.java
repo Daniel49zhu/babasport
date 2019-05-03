@@ -1,13 +1,9 @@
 package com.zjc.core.controller.admin;
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.WebResource;
 import com.zjc.common.web.ResponseUtils;
-import com.zjc.core.web.Constants;
 import org.apache.commons.io.FilenameUtils;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;

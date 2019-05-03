@@ -1,6 +1,7 @@
 package com.zjc.core.dao.product;
 
 import com.zjc.core.bean.product.Brand;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -47,4 +48,22 @@ public interface BrandDao {
             "</if>\n" +
             "</where></script>")
     int getBrandCount(Brand brand);
+
+    @Insert("<script>insert into bbs_brand\n" +
+            "<trim prefix=\"(\" suffix=\")\">\n" +
+            "name ,\n" +
+            "description,\n" +
+            "img_url,\n" +
+            "sort,\n" +
+            "is_display\n" +
+            "</trim>\n" +
+            "values\n" +
+            "<trim prefix=\"(\" suffix=\")\">\n" +
+            "#{name},\n" +
+            "#{description},\n" +
+            "#{imgUrl},\n" +
+            "#{sort},\n" +
+            "#{isDisplay}\n" +
+            "</trim></script>")
+    void addBrand(Brand brand);
 }

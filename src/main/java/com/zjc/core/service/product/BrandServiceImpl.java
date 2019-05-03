@@ -25,4 +25,9 @@ public class BrandServiceImpl implements BrandService {
 
         return pagination;
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void addBrand(Brand brand) {
+        brandDao.addBrand(brand);
+    }
 }
