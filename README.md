@@ -34,3 +34,8 @@ public void initBinder(WebDataBinder binder, WebRequest request) {
 </bean>
 ```
 定义的转换器和局部一样
+
+上传图片
+在[springmvc-back.xml](src/main/resources/springmvc-back.xml)中配置多文件解析器
+
+搭建一个Jersy服务器
