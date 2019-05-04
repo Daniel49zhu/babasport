@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 public class BrandServiceImpl implements BrandService {
     @Autowired
@@ -19,7 +17,7 @@ public class BrandServiceImpl implements BrandService {
         //1:起始页  startRow = (pageNo - 1)*pageSize
         //2:每页数
         //3:总记录数
-        Pagination  pagination = new Pagination(brand.getPageNo(),brand.getPageSize(),brandDao.getBrandCount(brand));
+        Pagination pagination = new Pagination(brand.getPageNo(), brand.getPageSize(), brandDao.getBrandCount(brand));
         //Brand集合
         pagination.setList(brandDao.getBrandListWithPage(brand));
 
@@ -30,4 +28,28 @@ public class BrandServiceImpl implements BrandService {
     public void addBrand(Brand brand) {
         brandDao.addBrand(brand);
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteBrandByKey(Integer id) {
+        brandDao.deleteBrandByKey(id);
+
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteBrandByKeys(Integer[] ids) {
+        brandDao.deleteBrandByKeys(ids);
+
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void updateBrandByKey(Brand brand) {
+        brandDao.updateBrandByKey(brand);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public Brand getBrandByKey(Integer id) {
+        // TODO Auto-generated method stub
+        return brandDao.getBrandByKey(id);
+    }
+
 }

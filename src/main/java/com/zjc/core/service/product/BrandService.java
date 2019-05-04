@@ -4,7 +4,19 @@ import cn.itcast.common.page.Pagination;
 import com.zjc.core.bean.product.Brand;
 
 public interface BrandService {
-	Pagination  getBrandListWithPage(Brand brand);
+    Pagination getBrandListWithPage(Brand brand);
 
     void addBrand(Brand brand);
+
+    //删除
+    void deleteBrandByKey(Integer id);
+
+    //删除 批量
+    void deleteBrandByKeys(Integer[] ids);//List<Integer>  ids
+
+    //修改
+    void updateBrandByKey(Brand brand);
+
+    //
+    Brand getBrandByKey(Integer id);
 }

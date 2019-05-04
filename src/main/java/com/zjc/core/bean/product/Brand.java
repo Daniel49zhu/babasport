@@ -100,4 +100,9 @@ public class Brand {
         this.pageNo = pageNo;
     }
 
+    //获取全路径
+    public String getAllUrl(){
+        return  imgUrl;
+    }
+
 }

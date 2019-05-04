@@ -57,15 +57,16 @@ public class BrandController {
 
         return "brand/list";
     }
+
     //跳转品牌添加页面
-    @RequestMapping(value= "/brand/toAdd.do")
-    public String toAdd(){
+    @RequestMapping(value = "/brand/toAdd.do")
+    public String toAdd() {
         return "brand/add";
     }
 
     //添加品牌
     @RequestMapping(value = "/brand/add.do")
-    public String add(Brand brand){
+    public String add(Brand brand) {
         //添加开始
         brandService.addBrand(brand);
         return "redirect:/brand/list.do";
@@ -74,15 +75,33 @@ public class BrandController {
 
     //删除一个品牌
     @RequestMapping(value = "/brand/delete.do")
-    public String delete(Integer id,String name,Integer isDisplay,ModelMap model){
-        //TODO 删除
-        if(StringUtils.isNotBlank(name)){
-            model.addAttribute("name", name);
-        }
-        if(null != isDisplay){
-            model.addAttribute("isDisplay", isDisplay);
-        }
+    public String delete(Integer id, String name, Integer isDisplay, ModelMap model) {
+        brandService.deleteBrandByKey(id);
+        return "redirect:/brand/list.do";
+    }
 
+    //删除多个品牌
+    @RequestMapping(value = "/brand/deletes.do")
+    public String deletes(Integer[] ids, String name, Integer isDisplay, ModelMap model) {
+        brandService.deleteBrandByKeys(ids);
+        return "redirect:/brand/list.do";
+    }
+
+    //去修改页面
+    @RequestMapping(value = "/brand/toEdit.do")
+    public String toEdit(Integer id, ModelMap model) {
+
+        Brand brand = brandService.getBrandByKey(id);
+
+        model.addAttribute("brand", brand);
+
+        return "brand/edit";
+    }
+
+    //去修改页面
+    @RequestMapping(value = "/brand/edit.do")
+    public String edit(Brand brand, ModelMap model) {
+        brandService.updateBrandByKey(brand);
         return "redirect:/brand/list.do";
     }
 

@@ -34,4 +34,10 @@ public class TestBrandService {
         System.out.println(StringUtils.isNotBlank("   s"));
     }
 
+
+    @Test
+    public void testGetBeanById() {
+        System.out.println(brandService.getBrandByKey(83));
+    }
+
 }
