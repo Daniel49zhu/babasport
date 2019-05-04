@@ -34,7 +34,7 @@
     <!--mybatis sesstionFactory设置-->
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="com.zjc.core.bean"/>
+        <property name="typeAliasesPackage" value="com.zjc.core.bean,com.zjc.core.query"/>
     </bean>
 
     <!-- 扫包  -->

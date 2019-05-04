@@ -2,6 +2,9 @@ package com.zjc.core.service.product;
 
 import cn.itcast.common.page.Pagination;
 import com.zjc.core.bean.product.Brand;
+import com.zjc.core.query.product.BrandQuery;
+
+import java.util.List;
 
 public interface BrandService {
     Pagination getBrandListWithPage(Brand brand);
@@ -19,4 +22,7 @@ public interface BrandService {
 
     //
     Brand getBrandByKey(Integer id);
+
+    //查询集合
+    List<Brand> getBrandList(BrandQuery brandQuery);
 }

@@ -3,9 +3,12 @@ package com.zjc.core.service.product;
 import cn.itcast.common.page.Pagination;
 import com.zjc.core.bean.product.Brand;
 import com.zjc.core.dao.product.BrandDao;
+import com.zjc.core.query.product.BrandQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class BrandServiceImpl implements BrandService {
@@ -52,4 +55,8 @@ public class BrandServiceImpl implements BrandService {
         return brandDao.getBrandByKey(id);
     }
 
+    public List<Brand> getBrandList(BrandQuery brandQuery) {
+        // TODO Auto-generated method stub
+        return brandDao.getBrandList(brandQuery);
+    }
 }
