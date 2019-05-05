@@ -1,10 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.zjc</groupId>
-    <artifactId>babasport</artifactId>
+    <groupId>com.zjc.babasport</groupId>
+    <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <name>babasport</name>
 
+    <modules>
+        <module>babasport-common</module>
+        <module>babasport-pojo</module>
+        <module>babasport-dao</module>
+        <module>babasport-interface</module>
+        <module>babasport-console</module>
+        <module>babasport-portal</module>
+        <module>babasport-login</module>
+        <module>babasport-service-cob</module>
+        <module>babasport-service-solr</module>
+        <module>babasport-service-product</module>
+        <module>babasport-service-cms</module>
+    </modules>
 </project>
