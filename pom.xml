@@ -47,6 +47,7 @@
         <module>babasport-service-cms</module>
     </modules>
 
+    <dependencyManagement>
         <dependencies>
             <!-- with junit4.8.2 -->
             <dependency>
@@ -300,5 +301,5 @@
                 <scope>provided</scope>
             </dependency>
         </dependencies>
-
+    </dependencyManagement>
 </project>

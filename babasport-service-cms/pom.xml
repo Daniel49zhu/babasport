@@ -7,19 +7,26 @@
   </parent>
   <artifactId>babasport-service-cms</artifactId>
   <packaging>war</packaging>
-  
-  
-  <!-- 依赖管理 -->
-  <dependencies>
-  	<dependency>
-  		 <groupId>com.zjc.babasport</groupId>
-    	<artifactId>babasport-interface</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<dependency>
-  		 <groupId>com.zjc.babasport</groupId>
-    	<artifactId>babasport-dao</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+
+
+
+    <!-- 依赖管理 -->
+    <dependencies>
+        <dependency>
+            <groupId>com.zjc.babasport</groupId>
+            <artifactId>babasport-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zjc.babasport</groupId>
+            <artifactId>babasport-dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- tomcat7 servlet-api -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

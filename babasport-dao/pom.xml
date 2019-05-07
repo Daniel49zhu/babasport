@@ -6,16 +6,24 @@
       <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>babasport-dao</artifactId>
-  
-  
-  
+
+
+
+
+
     <!-- 依赖管理 -->
-  <!-- babasport-common -->
-  <dependencies>
-  	<dependency>
-  		 <groupId>com.zjc.babasport</groupId>
-    	<artifactId>babasport-pojo</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+    <!-- babasport-common -->
+    <dependencies>
+        <dependency>
+            <groupId>com.zjc.babasport</groupId>
+            <artifactId>babasport-pojo</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- tomcat7 servlet-api -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
