@@ -1,12 +1,13 @@
 package com.zjc.core.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TestTb {
+public class TestTb  implements Serializable {
+    private static final long serialVersionUID = -5879862331268836174L;
     /**
      *
      */
-    private static final long serialVersionUID = 1L;
     private Integer id;
     private String name;
     private Date birthday;

@@ -19,6 +19,8 @@
    		http://www.springframework.org/schema/task/spring-task-4.0.xsd
 		http://code.alibabatech.com/schema/dubbo
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <import resource="config/*.xml" />
     <!--数据源-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <!-- 阿里巴巴数据源  druid   -->
