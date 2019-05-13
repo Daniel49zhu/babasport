@@ -12,6 +12,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
+/**
+ * 图片上传使用FastDFS 此处省略配置分布式文件系统，直接保存在本机来简化配置流程
+ */
 @Controller
 public class UploadController {
     @Autowired

@@ -9,4 +9,6 @@ public interface BrandService {
     Pagination selectPaginationByQuery(String name, Integer isDisplay, Integer pageNo);
     //通过ID查询品牌
     Brand selectBrandById(Long id);
+
+    void updateBrandById(Brand brand);
 }
