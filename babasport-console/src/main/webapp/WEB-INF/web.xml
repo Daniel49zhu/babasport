@@ -34,4 +34,8 @@
 		<servlet-name>console</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>console</servlet-name>
+		<url-pattern>/upload/getPic/.*</url-pattern>
+	</servlet-mapping>
 </web-app>

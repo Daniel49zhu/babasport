@@ -1,6 +1,7 @@
 package com.zjc.core.controller;
 
 import cn.itcast.common.page.Pagination;
+import com.zjc.core.bean.product.Brand;
 import com.zjc.core.service.product.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,8 @@ public class BrandController {
     //去修改页面
     @RequestMapping(value = "/brand/toEdit.do")
     public String toEdit(Long id, Model model) {
-
+        Brand brand = brandService.selectBrandById(id);
+        model.addAttribute("brand", brand);
         return "brand/edit";
     }
 

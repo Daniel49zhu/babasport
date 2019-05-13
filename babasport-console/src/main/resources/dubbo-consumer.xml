@@ -29,4 +29,5 @@
 	<!-- 4： 调用此接口对应的实现类-->
 	<dubbo:reference interface="com.zjc.core.service.TestTbService" id="testTbService"/>
 	<dubbo:reference interface="com.zjc.core.service.product.BrandService" id="brandService"/>
+	<dubbo:reference interface="com.zjc.core.service.product.UploadService" id="uploadService"/>
 </beans>
