@@ -16,3 +16,4 @@ yarn-debug.log*
 yarn-error.log*
 electron-demo-linux-ia32
 target/
+imagerepo/
