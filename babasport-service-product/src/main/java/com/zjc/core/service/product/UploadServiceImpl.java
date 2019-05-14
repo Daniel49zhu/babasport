@@ -1,14 +1,23 @@
 package com.zjc.core.service.product;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 @Service(value = "uploadService")
 public class UploadServiceImpl implements UploadService {
     //上传图片
     public String uploadPic(byte[] pic, String name, long size) {
-        File image = new File("D:\\ImageRepo\\" + name);
+        String etc = FilenameUtils.getExtension(name);
+        String formatDate = new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
+        String uuid = UUID.randomUUID().toString().replaceAll("-","");
+        String newName = formatDate+uuid+"."+etc;
+        File image = new File("D:\\ImageRepo\\" + newName);
         try (OutputStream os = new FileOutputStream(image)) {
             os.write(pic);
             os.flush();
@@ -17,7 +26,7 @@ public class UploadServiceImpl implements UploadService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return newName;
     }
 
     @Override

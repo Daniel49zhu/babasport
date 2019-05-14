@@ -24,10 +24,10 @@ public class UploadController {
     @RequestMapping(value = "/upload/uploadPic.do")
     public void uploadPic(@RequestParam(required = false) MultipartFile pic, HttpServletResponse response) throws IOException {
 
-        uploadService.uploadPic(pic.getBytes(), pic.getOriginalFilename(), pic.getSize());
+        String newName= uploadService.uploadPic(pic.getBytes(), pic.getOriginalFilename(), pic.getSize());
 
         JSONObject jo = new JSONObject();
-        jo.put("url", "/upload/" + pic.getOriginalFilename() + "/getPic.do");
+        jo.put("url", "/upload/" + newName + "/getPic.do");
 
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(jo.toString());
