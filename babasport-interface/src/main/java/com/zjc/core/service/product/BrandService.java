@@ -11,4 +11,6 @@ public interface BrandService {
     Brand selectBrandById(Long id);
 
     void updateBrandById(Brand brand);
+
+    void deletes(Long[] ids);
 }

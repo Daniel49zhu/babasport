@@ -16,4 +16,6 @@ public interface BrandDao {
 
     //修改品牌
     void updateBrandById(Brand brand);
+
+    void deletes(Long[] ids);
 }
