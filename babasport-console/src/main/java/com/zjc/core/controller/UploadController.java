@@ -27,15 +27,15 @@ public class UploadController {
         String newName= uploadService.uploadPic(pic.getBytes(), pic.getOriginalFilename(), pic.getSize());
 
         JSONObject jo = new JSONObject();
-        jo.put("url", "/upload/" + newName + "/getPic.do");
+        jo.put("url", "/upload/getPic.do?name="+newName);
 
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(jo.toString());
 
     }
 
-    @RequestMapping(value = "/upload/{name:.+}/getPic.do")
-    public void getPic(@PathVariable("name") String name, HttpServletResponse response) {
+    @RequestMapping(value = "/upload/getPic.do")
+    public void getPic(String name, HttpServletResponse response) {
         File file = uploadService.getPic(name);
         byte[] buffer = new byte[1 << 10];
         try (OutputStream writer = response.getOutputStream();
