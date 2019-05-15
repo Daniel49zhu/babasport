@@ -32,6 +32,7 @@
     <dubbo:service interface="com.zjc.core.service.TestTbService" ref="testTbService"/>
     <dubbo:service interface="com.zjc.core.service.product.BrandService" ref="brandService"/>
     <dubbo:service interface="com.zjc.core.service.product.UploadService" ref="uploadService"/>
+    <dubbo:service interface="com.zjc.core.service.product.ProductService" ref="productService"/>
 
 
 </beans>

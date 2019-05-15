@@ -7,6 +7,8 @@ import com.zjc.core.dao.product.BrandDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service(value = "brandService")
 public class BrandServiceImpl implements BrandService {
     @Autowired
@@ -61,5 +63,13 @@ public class BrandServiceImpl implements BrandService {
     @Override
     public void deletes(Long[] ids) {
         brandDao.deletes(ids);
+    }
+
+    @Override
+    public List<Brand> selectBrandListByQuery(Integer isDisplay) {
+        BrandQuery brandQuery = new BrandQuery();
+        brandQuery.setIsDisplay(isDisplay);
+        // TODO Auto-generated method stub
+        return brandDao.selectBrandListByQuery(brandQuery);
     }
 }
