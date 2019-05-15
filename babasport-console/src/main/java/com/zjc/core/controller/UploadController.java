@@ -7,10 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 图片上传使用FastDFS 此处省略配置分布式文件系统，直接保存在本机来简化配置流程
@@ -24,14 +27,28 @@ public class UploadController {
     @RequestMapping(value = "/upload/uploadPic.do")
     public void uploadPic(@RequestParam(required = false) MultipartFile pic, HttpServletResponse response) throws IOException {
 
-        String newName= uploadService.uploadPic(pic.getBytes(), pic.getOriginalFilename(), pic.getSize());
+        String newName = uploadService.uploadPic(pic.getBytes(), pic.getOriginalFilename(), pic.getSize());
 
         JSONObject jo = new JSONObject();
-        jo.put("url", "/upload/getPic.do?name="+newName);
+        jo.put("url", "/upload/getPic.do?name=" + newName);
 
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(jo.toString());
 
+    }
+
+    //上传多张图片
+    @RequestMapping(value = "/upload/uploadPics.do")
+    @ResponseBody
+    public List<String> uploadPics(@RequestParam(required = false) MultipartFile[] pics, HttpServletResponse response) throws IOException {
+        List<String> urls = new ArrayList<>();
+
+        for (MultipartFile pic : pics) {
+            String newName = uploadService.uploadPic(pic.getBytes(), pic.getOriginalFilename(), pic.getSize());
+            String url = "/upload/getPic.do?name=" + newName;
+            urls.add(url);
+        }
+        return urls;
     }
 
     @RequestMapping(value = "/upload/getPic.do")
@@ -48,4 +65,6 @@ public class UploadController {
             e.printStackTrace();
         }
     }
+
+
 }
