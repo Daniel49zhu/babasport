@@ -5,7 +5,6 @@ import com.zjc.core.bean.product.*;
 import com.zjc.core.dao.product.ColorDao;
 import com.zjc.core.dao.product.ProductDao;
 import com.zjc.core.dao.product.SkuDao;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
