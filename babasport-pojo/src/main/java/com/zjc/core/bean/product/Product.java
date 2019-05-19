@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Product implements Serializable {
-    private static final long serialVersionUID = -6588452873112596573L;
     /**
      * ID或商品编号
      */
@@ -68,7 +67,7 @@ public class Product implements Serializable {
     /**
      * 颜色集
      */
-    private String colors;
+    private String colors;//1,2,3,4
 
     /**
      * 尺寸集
@@ -79,6 +78,14 @@ public class Product implements Serializable {
      * 添加时间
      */
     private Date createTime;
+
+
+    //附加方法
+    public String[] getImages(){
+        return imgUrl.split(",");
+    }
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;

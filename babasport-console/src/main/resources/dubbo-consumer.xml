@@ -31,4 +31,5 @@
 	<dubbo:reference interface="com.zjc.core.service.product.BrandService" id="brandService"/>
 	<dubbo:reference interface="com.zjc.core.service.product.UploadService" id="uploadService"/>
 	<dubbo:reference interface="com.zjc.core.service.product.ProductService" id="productService"/>
+	<dubbo:reference interface="com.zjc.core.service.product.SkuService" id="skuService"/>
 </beans>

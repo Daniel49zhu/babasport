@@ -8,6 +8,7 @@ import com.zjc.core.dao.product.SkuDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.Jedis;
 
 import java.util.Date;
 import java.util.List;
@@ -64,6 +65,8 @@ public class ProductServiceImpl implements ProductService {
     private ColorDao colorDao;
     @Autowired
     private SkuDao skuDao;
+    @Autowired
+    private Jedis jedis;
 
     //颜色结果集
     public List<Color> selectColorList() {
@@ -76,7 +79,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void insertProduct(Product product) {
         //保存商品
-        Long id = new Random().nextLong();
+        Long id = jedis.incr("pno");
         product.setId(id);
 //		下架状态 后台程序写的
         product.setIsShow(false);
