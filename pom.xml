@@ -227,12 +227,13 @@
                 <artifactId>page</artifactId>
                 <version>1.0</version>
             </dependency>
-            <!-- solrJ -->
+            <!-- https://mvnrepository.com/artifact/org.apache.solr/solr-solrj -->
             <dependency>
                 <groupId>org.apache.solr</groupId>
                 <artifactId>solr-solrj</artifactId>
-                <version>4.10.3</version>
+                <version>8.0.0</version>
             </dependency>
+
 
             <!-- jedis Java接口 -->
             <dependency>
