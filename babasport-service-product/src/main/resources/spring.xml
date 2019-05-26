@@ -20,7 +20,7 @@
 		http://code.alibabatech.com/schema/dubbo
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <import resource="config/*.xml" />
+    <import resource="config/*.xml"/>
     <!--数据源-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <!-- 阿里巴巴数据源  druid   -->
@@ -64,5 +64,12 @@
     <bean id="jedis" class="redis.clients.jedis.Jedis">
         <constructor-arg value="192.168.40.132" index="0" type="java.lang.String"/>
         <constructor-arg value="6379" index="1"/>
+    </bean>
+    <!--Solr配置-->
+    <bean id="httpSolrClient" class="org.apache.solr.client.solrj.impl.HttpSolrClient">
+        <constructor-arg ref="builder"/>
+    </bean>
+    <bean id="builder" class="org.apache.solr.client.solrj.impl.HttpSolrClient.Builder">
+        <constructor-arg value="http://localhost:8983/solr"/>
     </bean>
 </beans>

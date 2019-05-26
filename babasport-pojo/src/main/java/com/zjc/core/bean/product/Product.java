@@ -1,5 +1,7 @@
 package com.zjc.core.bean.product;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -81,8 +83,12 @@ public class Product implements Serializable {
 
 
     //附加方法
-    public String[] getImages(){
-        return imgUrl.split(",");
+    public String[] getImages() {
+        if (StringUtils.isNotBlank(imgUrl)) {
+            return imgUrl.split(",");
+        } else {
+            return new String[]{""};
+        }
     }
 
     private static final long serialVersionUID = 1L;

@@ -12,11 +12,16 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.solr.common.params.MapSolrParams;
 import org.apache.solr.common.params.SolrParams;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:spring.xml"})
 public class TestSolrService {
     // solr url
     private final static String BASE_URL = "http://localhost:8983/solr";
@@ -38,15 +43,18 @@ public class TestSolrService {
                 .build();
     }
 
+    @Autowired
+    private HttpSolrClient httpSolrClient;
+
     @Test
     public void testQuery() throws IOException, SolrServerException {
-        HttpSolrClient solrClient = getSolrClient();
+//        HttpSolrClient solrClient = getSolrClient();
         // 定义查询条件
         Map<String, String> params = new HashMap<>();
         params.put("q", "*:*");
         SolrParams mapSolrParams = new MapSolrParams(params);
         //执行查询 第一个参数是collection，就是我们在solr中创建的core
-        QueryResponse response = solrClient.query("babasport", mapSolrParams);
+        QueryResponse response = httpSolrClient.query("babasport", mapSolrParams);
         // 获取结果集
         SolrDocumentList results = response.getResults();
         for (SolrDocument result : results) {
