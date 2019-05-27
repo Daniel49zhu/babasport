@@ -20,18 +20,15 @@
 		http://code.alibabatech.com/schema/dubbo        
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<!-- Dubbo消费方 -->
+	<!-- Dubbo提供方 -->
 	<!-- 1：名称  计算机 区别 唯一 -->
-	<dubbo:application name="babasport-console"/>
+	<dubbo:application name="babasport-service-product"/>
 	<!-- 2：设置注册中心  地址  zookeeper在哪里  redis ... -->
 	<!-- 	<dubbo:registry address="192.168.200.128:2181,192.168.200.129:2181,192.168.200.130:2181" protocol="zookeeper"/> -->
 	<dubbo:registry address="192.168.40.132:2181" protocol="zookeeper"/>
-	<!-- 4： 调用此接口对应的实现类-->
-	<dubbo:reference interface="com.zjc.core.service.TestTbService" id="testTbService"/>
-	<dubbo:reference interface="com.zjc.core.service.product.BrandService" id="brandService"/>
-	<dubbo:reference interface="com.zjc.core.service.product.UploadService" id="uploadService"/>
-	<dubbo:reference interface="com.zjc.core.service.product.ProductService" id="productService"/>
-	<dubbo:reference interface="com.zjc.core.service.product.SkuService" id="skuService"/>
-	<dubbo:reference interface="com.zjc.core.service.SearchService" id="searchService"/>
+	<!-- 3：dubbo://192.168.39.80:20880  默认  设置提供服务的端口号 -->
+	<dubbo:protocol port="20880" name="dubbo"/>
+	<!-- 4： 暴露实现类-->
+	<dubbo:service interface="com.zjc.core.service.SearchService" ref="searchService"/>
 
 </beans>

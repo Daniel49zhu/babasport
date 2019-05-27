@@ -61,6 +61,9 @@ public class Product implements Serializable {
      */
     private String description;
 
+
+    private Float Price;
+
     /**
      * 包装清单
      */
@@ -211,6 +214,14 @@ public class Product implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Float getPrice() {
+        return Price;
+    }
+
+    public void setPrice(Float price) {
+        Price = price;
     }
 
     @Override
