@@ -70,8 +70,9 @@ public class BrandServiceImpl implements BrandService {
         brandDao.updateBrandById(brand);
     }
     //查询 从Redis中
+    @Override
     public List<Brand> selectBrandListFromRedis(){
-        List<Brand> brands = new ArrayList<Brand>();
+        List<Brand> brands = new ArrayList<>();
         //Redis中查
         Map<String, String> hgetAll = jedis.hgetAll("brand");
         Set<Map.Entry<String, String>> entrySet = hgetAll.entrySet();
