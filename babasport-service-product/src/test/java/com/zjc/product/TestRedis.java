@@ -15,8 +15,9 @@ public class TestRedis {
 	@Test
 	public void testRedis() throws Exception {
 		
-		Jedis jedis = new Jedis("192.168.40.132",6379);
+		jedis = new Jedis("192.168.40.132",6379);
 //		jedis.set("pno","1000");
+		jedis.hgetAll("brand");
 		Long pno = jedis.incr("pno");
 		System.out.println(pno);
 		jedis.close();
